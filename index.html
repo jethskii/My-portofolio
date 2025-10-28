@@ -72,19 +72,72 @@
     .chip-row{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem}
 
     /* ===== Right card (photo) ===== */
-    .photo-card{position:relative; min-height:520px; overflow:hidden}
-    .photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.83}
-    .photo-grad{ position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.22) 32%, rgba(0,0,0,.12) 55%, rgba(0,0,0,.30) 100%),
-                  linear-gradient(to top right, rgba(6,27,28,.65), transparent 58%); }
-    .photo-inner{position:relative; padding:1.5rem}
-    .overline{letter-spacing:.2em; text-transform:uppercase; font-size:.72rem; color:var(--muted); opacity:.9}
-    .h2{font-size:2.25rem; line-height:1.1; font-weight:800; margin:.35rem 0 0}
-    .meta{font-size:.8rem; color:#eafefd; opacity:.92; line-height:1.6; margin-top:.25rem}
-    .stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:1rem}
-    .stat{border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.05); text-align:center; padding:1rem; border-radius:14px}
-    .stat h4{margin:0; color:#c0fff7; font-size:1.1rem; font-weight:800}
-    .stat p{margin:.25rem 0 0; font-size:.78rem; color:#cfeeed}
+    /* ==== RIGHT PHOTO CARD — updated to match reference ==== */
+.photo-card{
+  position:relative; overflow:hidden; min-height:520px;
+  display:block;
+}
+@media (min-width:1200px){ .photo-card{ min-height:640px } }
+
+/* Full-bleed image with stable crop (tweak object-position if needed) */
+.photo{
+  position:absolute; inset:0; width:100%; height:100%; display:block;
+  object-fit:cover; object-position:38% 32%;  /* <— pan left/right if needed */
+  transform:scale(1.02); opacity:.95;
+}
+
+/* Stronger readability at top-left and gentle bottom glow, like the ref */
+.photo-grad{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(120% 85% at 12% 10%, rgba(5,24,26,.75) 0%, rgba(5,24,26,.45) 35%, transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.10) 60%, rgba(0,0,0,.30) 100%),
+    radial-gradient(120% 90% at 18% 95%, rgba(101,246,226,.12) 0%, transparent 55%);
+}
+
+/* Anchor all text to the bottom-left, with consistent gaps */
+.photo-inner{
+  position:relative; height:100%;
+  display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-start;
+  gap:.8rem; padding:1.5rem;    /* base padding */
+}
+@media (min-width:1200px){ .photo-inner{ padding:2rem } }
+
+/* Typographic scale to match the reference */
+.overline{
+  order:0; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.72rem; color:var(--muted); opacity:.95;
+}
+.h2{
+  order:1; margin:0;
+  font-weight:800; line-height:1.03;
+  font-size:2.6rem;            /* base */
+  text-shadow:0 0 10px rgba(45,212,191,.25), 0 0 18px rgba(45,212,191,.12);
+}
+@media (min-width:1200px){ .h2{ font-size:3rem } }
+
+.meta{
+  order:2; margin:0; font-size:.86rem; line-height:1.55; color:#eafefd; opacity:.95;
+}
+
+/* “Open to Internships…” chip directly under meta */
+.photo-inner .chip{ order:3; margin-top:.25rem }
+
+/* Stats row locked near bottom like the reference */
+.stats{
+  order:4; width:100%;
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.9rem; margin-top:.6rem; margin-bottom:.25rem;
+}
+.stat{
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  text-align:center; padding:1rem; border-radius:14px;
+  backdrop-filter:blur(6px);
+}
+.stat h4{ margin:0; color:#c0fff7; font-size:1.15rem; font-weight:800 }
+.stat p{ margin:.25rem 0 0; font-size:.8rem; color:#cfeeed }
+
 
     /* ===== Sections below hero ===== */
     .panel{padding:1.25rem 1.5rem}
