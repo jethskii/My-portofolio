@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact • Jethro K. Mandalones | Portfolio</title>
+
+  <!-- Tailwind for utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Preload fallback bg -->
+  <link rel="preload" as="image" href="images/bg-fallback.jpg" imagesrcset="images/bg-fallback.jpg 1x">
+
+  <!-- Custom CSS (separated) -->
+  <link rel="stylesheet" href="assets/css/contact.css" />
+</head>
+<body class="antialiased selection:bg-teal-500/30 selection:text-white">
+
+  <!-- Background layer (video + overlay) -->
+  <div class="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="images/bg-fallback.jpg">
+      <source src="videos/nebula-mesh.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-overlay"></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50">
+    <nav class="glass">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="/index.html" class="flex items-center gap-2">
+            <span class="text-teal-300 tracking-widest font-extrabold text-xl">JETHRO <span class="opacity-80">MANDALONES</span></span>
+            <span class="hidden sm:inline-block text-xs chip">Software Developer • Graphic Designer</span>
+          </a>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="/index.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">Home</a>
+            <a href="/about.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">About</a>
+            <a href="/portfolio.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">Portfolio</a>
+            <a href="/contact.html" class="px-3 py-2 rounded-full text-sm bg-white/10 text-teal-200">Contact</a>
+          </div>
+          <a href="/about.html" class="md:hidden px-3 py-2 rounded-lg hover:bg-white/5">Back</a>
+        </div>
+      </div>
+    </nav>
+    <div class="divider"></div>
+  </header>
+
+  <!-- Success toast (shown via JS on ?sent=1 or after copy) -->
+  <div id="successToast" class="success-toast hidden">
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+      <p class="text-sm" id="successToastText">Message sent. I’ll get back to you soon.</p>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
+
+    <!-- Hero + Form -->
+    <section class="glass rounded-3xl p-6 sm:p-10">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <span class="chip text-xs tracking-wider text-teal-200/90">CONTACT</span>
+          <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold neon">
+            Your reliable developer,<br>Right where you need me.
+          </h1>
+          <p class="mt-3 text-teal-100/85">
+            You don’t need another freelancer you need results.<br>
+            Someone who understands your goals, respects your time, and delivers without the chaos.<br><br>
+
+            You deserve <strong>someone you can actually rely on.</strong><br>
+            That’s why I approach every project like it’s my own building structure from ideas, solving problems before they appear, and creating digital solutions that simply work.<br><br>
+
+            Whether it’s coding, designing, or optimizing, I handle every detail with <strong>precision, logic, and creativity.</strong><br>
+            My focus is on clean architecture, strong performance, and a seamless user experience that leaves an impact.<br><br>
+
+            If this sounds like what you’ve been searching for, then you’re in the right place.<br>
+            <strong>Let’s build something that works beautifully together.</strong><br><br>
+
+            Just send your name and email, and I’ll reach out personally to get started.
+          </p>
+
+          <!-- Form (static action; replace with your endpoint) -->
+          <form class="mt-8 space-y-4" action="#" method="POST" novalidate onsubmit="handleSubmit(event)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="field">
+                <label class="label">Full name</label>
+                <input type="text" name="name" placeholder="Your name" required>
+                <p class="error mt-1 hidden" data-error-for="name"></p>
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <input type="email" name="email" placeholder="name@email.com" required>
+                <p class="error mt-1 hidden" data-error-for="email"></p>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="field">
+                <label class="label">Phone</label>
+                <input type="text" name="phone" placeholder="+63 9xx xxx xxxx" inputmode="tel">
+                <p class="error mt-1 hidden" data-error-for="phone"></p>
+              </div>
+              <div class="field">
+                <label class="label">Project type</label>
+                <select name="service">
+                  <option value="">Select a service</option>
+                  <option value="Brand identity">Brand identity</option>
+                  <option value="Social media design">Social media design</option>
+                  <option value="Campaign creative">Campaign creative</option>
+                  <option value="Content package">Content package</option>
+                  <option value="Other">Other</option>
+                </select>
+                <p class="error mt-1 hidden" data-error-for="service"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Subject</label>
+              <input type="text" name="subject" placeholder="What is this about" required>
+              <p class="error mt-1 hidden" data-error-for="subject"></p>
+            </div>
+
+            <div class="field">
+              <label class="label">Message</label>
+              <textarea name="message" rows="6" placeholder="Describe your goals, timeline, and budget"></textarea>
+              <p class="error mt-1 hidden" data-error-for="message"></p>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button type="submit" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Send message
+              </button>
+              <a href="mailto:mandalonesjeth748@gmail.com" class="btn btn-outline">Email me directly</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact cards -->
+        <aside class="space-y-4">
+          <div class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-wider text-teal-200/80">Reach me</p>
+            <div class="mt-3 space-y-2 text-sm">
+              <div class="flex items-center justify-between">
+                <span>Email</span>
+                <button class="chip text-xs" type="button" onclick="copyToClipboard('mandalonesjeth748@gmail.com')">Copy</button>
+              </div>
+              <a href="mailto:mandalonesjeth748@gmail.com" class="link block text-teal-200">mandalonesjeth748@gmail.com</a>
+
+              <div class="mt-3 flex items-center justify-between">
+                <span>Instagram</span>
+                <a class="chip text-xs" target="_blank" rel="noopener" href="https://www.instagram.com/jethjetskiii/">Open</a>
+              </div>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/jethjetskiii/" class="link block text-teal-200">instagram.com/jethjetskiii</a>
+
+              <div class="mt-3 flex items-center justify-between">
+                <span>Facebook</span>
+                <a class="chip text-xs" target="_blank" rel="noopener" href="https://www.facebook.com/jethjeth.mandalones">Open</a>
+              </div>
+              <a target="_blank" rel="noopener" href="https://www.facebook.com/jethjeth.mandalones" class="link block text-teal-200">facebook.com/jethjeth.mandalones</a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-wider text-teal-200/80">Typical response time</p>
+            <p class="mt-2 text-sm text-teal-100/85">Within one business day</p>
+          </div>
+
+          <div class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-wider text-teal-200/80">Availability</p>
+            <p class="mt-2 text-sm text-teal-100/85">Open for commissions</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Mini FAQ -->
+    <section class="glass rounded-3xl p-6 sm:p-8">
+      <h2 class="text-2xl font-extrabold neon">Quick answers</h2>
+      <div class="mt-4 divide-y divide-white/10">
+        <details class="group py-3">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-teal-100">Do you work with small brands?</span>
+            <span class="chip text-[10px] group-open:hidden">Open</span>
+            <span class="chip text-[10px] hidden group-open:inline">Close</span>
+          </summary>
+          <p class="mt-2 text-sm text-teal-100/85">Yes. I enjoy helping small brands look polished and consistent.</p>
+        </details>
+
+        <details class="group py-3">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-teal-100">Can you start this week?</span>
+            <span class="chip text-[10px] group-open:hidden">Open</span>
+            <span class="chip text-[10px] hidden group-open:inline">Close</span>
+          </summary>
+          <p class="mt-2 text-sm text-teal-100/85">If the scope is small. For larger projects I will share a clear timeline.</p>
+        </details>
+
+        <details class="group py-3">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-teal-100">Do you provide source files?</span>
+            <span class="chip text-[10px] group-open:hidden">Open</span>
+            <span class="chip text-[10px] hidden group-open:inline">Close</span>
+          </summary>
+          <p class="mt-2 text-sm text-teal-100/85">Yes. I deliver assets, exports, and organized files.</p>
+        </details>
+      </div>
+    </section>
+
+    <p class="text-center text-xs text-teal-100/60">© <span id="yearNow"></span> Jethro Mandalones</p>
+  </main>
+
+  <!-- Minimal JS -->
+  <script>
+    // Auto year
+    document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+    // Show toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('successToast');
+      const msgEl = document.getElementById('successToastText');
+      if (msgEl) msgEl.textContent = msg || 'Done.';
+      toast.classList.remove('hidden');
+      setTimeout(()=> toast.classList.add('hidden'), 4000);
+    }
+
+    // Detect ?sent=1 to display toast
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1') {
+        showToast("Message sent. I’ll get back to you soon.");
+      }
+    })();
+
+    // Copy email
+    function copyToClipboard(text){
+      navigator.clipboard.writeText(text).then(()=> {
+        showToast('Copied');
+      });
+    }
+
+    // Basic client-side required checks + fake submit
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const fields = ['name','email','subject'];
+      let ok = true;
+      fields.forEach(n=>{
+        const el = form.querySelector(`[name="${n}"]`);
+        const err = form.querySelector(`[data-error-for="${n}"]`);
+        if (el && !el.value.trim()){
+          ok = false;
+          if (err) { err.textContent = 'This field is required.'; err.classList.remove('hidden'); }
+          el.classList.add('ring-2','ring-red-400/60');
+        } else {
+          if (err) { err.textContent = ''; err.classList.add('hidden'); }
+          el.classList.remove('ring-2','ring-red-400/60');
+        }
+      });
+      if (!ok) return;
+      // Replace with your backend call. For now, simulate success:
+      showToast("Message sent. I’ll get back to you soon.");
+      form.reset();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* ====== TECH STACK CSS====== */
+
+/* ====== Base / Reset ====== */
+:root{
+  --ink:#071a1b;
+  --panel:rgba(7,28,29,.72);
+  --teal-50:#ecfeff;
+  --teal-100:#ccfbf1;
+  --teal-200:#99f6e4;
+  --teal-300:#5eead4;
+  --teal-400:#2dd4bf;
+  --teal-500:#14b8a6;
+  --cyan:#22d3ee;
+  --white: #ffffff;
+  --glass-top: rgba(15,58,59,.78);
+  --glass-bot: rgba(15,58,59,.52);
+  --chip-bg: rgba(255,255,255,.08);
+  --chip-br: rgba(255,255,255,.16);
+  --ring: rgba(45,212,191,.45);
+  --amber-300:#fcd34d;
+  --amber-500:#f59e0b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html:focus-within{scroll-behavior:smooth}
+body.page{
+  margin:0;
+  background:var(--ink);
+  color:var(--white);
+  font-family:"Instrument Sans",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+@font-face{
+  font-family:"Instrument Sans";
+  src: url("assets/instrument-sans-latin-var.woff2") format("woff2-variations");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+img,video{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 1rem}
+
+/* ====== Skip link ====== */
+.skip-link{
+  position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-link:focus{
+  position:fixed;left:12px;top:12px;width:auto;height:auto;
+  z-index:100;
+  padding:.5rem .75rem;border-radius:.5rem;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  outline:none;box-shadow:0 0 0 3px var(--ring);
+}
+
+/* ===== Background (video + particles + overlay) ===== */
+    .bg-wrap{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+    .bg-video,.bg-canvas{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .bg-overlay{
+      position:absolute; inset:0; mix-blend-mode:overlay; opacity:.85;
+      background:radial-gradient(1200px 800px at 10% 0%, #0f3f40 0%, #0b2e2f 45%, #082123 100%);
+    }
+
+    /* Ensure page content is above the background */
+    .site-header, main{ position:relative; z-index:1; }
+/* ====== Header / Nav ====== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter: blur(12px);
+  background: color-mix(in oklab, var(--panel) 70%, transparent);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.header__row{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:.18em;color:var(--teal-300)}
+.brand__dim{opacity:.8}
+.brand:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring);border-radius:.4rem}
+
+.header__menu-btn{display:none}
+.nav{display:flex;gap:.5rem;list-style:none;margin:0;padding:0;align-items:center}
+.nav__link{
+  padding:.5rem .9rem;border-radius:9999px;
+  color: color-mix(in oklab, var(--teal-100) 80%, white);
+  transition:background .2s ease,color .2s ease,transform .12s ease;
+  outline:none;
+}
+.nav__link:hover{background:rgba(255,255,255,.06)}
+.nav__link:focus-visible{box-shadow:0 0 0 3px var(--ring)}
+.nav__link--active{background:rgba(255,255,255,.1);color:var(--teal-200)}
+
+@media (max-width: 768px){
+  .header__menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;right:1rem;top:64px;background:rgba(8,33,35,.92);backdrop-filter: blur(12px);border:1px solid rgba(255,255,255,.1);padding:.5rem;border-radius:1rem}
+  .nav.is-open{display:flex;flex-direction:column;gap:.25rem}
+}
+
+/* ====== Chips ====== */
+.chip{
+  display:inline-flex;align-items:center;gap:.45rem;height:36px;
+  padding:.35rem .7rem;border-radius:9999px;
+  background:var(--chip-bg);border:1px solid var(--chip-br);
+  font-size:10px;text-transform:none;letter-spacing:.04em;color:var(--teal-100);
+}
+.chip--ghost{height:34px}
+.chip--accent{background:linear-gradient(180deg, rgba(20,184,166,.20), rgba(20,184,166,.10));border-color:rgba(20,184,166,.35)}
+.chip--warn{background:linear-gradient(180deg, rgba(245,158,11,.20), rgba(245,158,11,.10));border-color:rgba(245,158,11,.35);color:#fde68a}
+.chip--neutral{background:linear-gradient(180deg, rgba(148,163,184,.18), rgba(148,163,184,.08));border-color:rgba(148,163,184,.32);color:#e5e7eb}
+.chip--accent-alt{background:linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.08));border-color:rgba(56,189,248,.32);color:#bae6fd}
+.chip--learning{background:rgba(245,158,11,.20);color:var(--amber-300);border-color:rgba(245,158,11,.32)}
+
+/* ====== Card / Glass ====== */
+.glass{
+  background:linear-gradient(180deg,var(--glass-top),var(--glass-bot));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:1.25rem;
+  box-shadow:var(--shadow);
+  position:relative;
+  transition:transform .2s ease, box-shadow .2s ease, background .15s ease;
+  will-change:transform, background;
+}
+.glass:hover{transform:translateY(-1px)}
+.card{padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
+.card__top{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.card__title{margin:0;color:var(--teal-200);font-size:1.25rem;font-weight:800}
+.card__eyebrow{margin:.35rem 0 0;color:color-mix(in oklab,var(--teal-100) 80%, white);font-size:.875rem}
+.card__body{margin:.8rem 0 0;color:color-mix(in oklab,var(--teal-100) 90%, white);font-size:.95rem;line-height:1.45}
+.card__foot{margin-top:1rem;display:flex;align-items:center;justify-content:space-between;color:rgba(204,251,241,.75);font-size:.8rem}
+.dot{width:.5rem;height:.5rem;border-radius:9999px;background:var(--teal-400);animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+/* pointer glow on move */
+.glass{background:
+  radial-gradient(380px circle at var(--mx,50%) var(--my,50%), rgba(14,165,164,.22), rgba(15,58,59,.60))
+}
+.glass[data-reset]{
+  background:linear-gradient(180deg,var(--glass-top),var(--glass-bot));
+}
+
+/* ====== Headings ====== */
+.section-head{padding-top:.25rem;text-align:center}
+.section-head--spaced{padding-top:2rem}
+.section-head h1,.section-head h2{margin:0;font-size:clamp(2rem,5vw,3.25rem);font-weight:900}
+.neon{
+  text-shadow:
+    0 0 0 rgba(34,211,238,.0),
+    0 1px 0 rgba(0,0,0,.25),
+    0 0 18px rgba(34,211,238,.55),
+    0 0 36px rgba(34,211,238,.25);
+}
+.section-sub{margin:.5rem 0 0;color:rgba(204,251,241,.85)}
+
+/* ====== Grid ====== */
+.grid{
+  display:grid;gap:1.5rem;margin-top:1.25rem;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+@media (max-width:1024px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .grid{grid-template-columns:1fr} }
+
+/* ====== Progress Meter ====== */
+.meter{margin-top:1rem}
+.meter::before{
+  content:"";display:block;height:8px;border-radius:9999px;
+  background:rgba(255,255,255,.08);overflow:hidden
+}
+.meter__bar{
+  display:block;height:8px;border-radius:9999px;margin-top:-8px;
+  width:var(--p,0);background:linear-gradient(90deg, rgba(45,212,191,.9), rgba(56,189,248,.9));
+}
+.meter__label{margin:.35rem 0 0;text-align:right;color:rgba(204,251,241,.75);font-size:.75rem}
+
+/* ====== Stats ====== */
+.stats{
+  margin-top:2rem;padding:1.25rem;border-radius:1.5rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;text-align:center
+}
+.stats__num{margin:0;font-size:2rem;font-weight:900;color:var(--teal-200)}
+.stats__num--mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+.stats__label{margin:.25rem 0 0;color:rgba(204,251,241,.80);font-size:.9rem}
+
+@media (max-width:640px){
+  .stats{grid-template-columns:1fr}
+}
+
+/* ====== Main spacing ====== */
+.main{position:relative}
+.stack{padding:3.5rem 0 2rem}
+.section{margin-top:1.75rem}
+.legal{margin-top:2rem;text-align:center;color:rgba(204,251,241,.60);font-size:.8rem}
+
+/* ====== Site footer ====== */
+.site-footer{
+  text-align:center;font-size:.8rem;color:rgba(204,251,241,.60);
+  padding:1.25rem;border-top:1px solid rgba(255,255,255,.1);
+  background: color-mix(in oklab, var(--panel) 60%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+/* ====== Focus styles ====== */
+a:focus-visible, button:focus-visible, .chip:focus-visible, .glass:focus-visible{
+  outline:none;box-shadow:0 0 0 3px var(--ring)
+}
+
+/* ====== Utilities ====== */
+.header__menu-btn{cursor:pointer}
+/* ====== TECH STACK CSS END ====== */
+

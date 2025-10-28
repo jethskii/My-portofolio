@@ -1,0 +1,42 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with Vite, HTML, CSS, and JavaScript.",
+  "author": "Jethro K. Mandalones",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
+  },
+
+  "devDependencies": {
+    "vite": "^7.1.7",
+    "gh-pages": "^6.1.1"
+  },
+
+  "keywords": [
+    "portfolio",
+    "vite",
+    "html",
+    "css",
+    "javascript",
+    "frontend",
+    "personal-website"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR-GITHUB-USERNAME/My-Portfolio.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/YOUR-GITHUB-USERNAME/My-Portfolio/issues"
+  },
+
+  "homepage": "https://YOUR-GITHUB-USERNAME.github.io/My-Portfolio/"
+}

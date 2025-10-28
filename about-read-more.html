@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Read More • Jethro K. Mandalones | Portfolio</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root{ --teal:#0ea5a4; --ink:#0c2c2d; --panel:#0f3a3b; }
+    html,body{ height:100%; }
+    body{
+      background: radial-gradient(1200px 800px at 10% 0%, #0f3f40 0%, #0b2e2f 45%, #082123 100%);
+      color:#e7fbfb;
+    }
+    .glass{
+      background: linear-gradient(180deg, rgba(15,58,59,.80), rgba(15,58,59,.55));
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .chip{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:9999px; padding:.35rem .75rem;}
+    .neon{ text-shadow:0 0 18px rgba(14,165,164,.55), 0 0 38px rgba(14,165,164,.35); }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.2rem; border-radius:9999px; font-weight:600; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg, rgba(14,165,164,.85), rgba(8,120,120,.85)); color:#052728; box-shadow:0 10px 20px rgba(14,165,164,.25); transition:transform .15s, box-shadow .15s;}
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 14px 28px rgba(14,165,164,.32); }
+    .btn-outline{ background:transparent; color:#bdf5f3; border-color:rgba(255,255,255,.2); }
+    .btn-outline:hover{ background:rgba(14,165,164,.12); color:#eaffff; box-shadow:0 10px 20px rgba(14,165,164,.18); }
+    .divider{ height:1px; width:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent); }
+    dialog::backdrop{ background:rgba(0,0,0,.55); }
+  </style>
+</head>
+<body class="antialiased selection:bg-teal-500/30 selection:text-white">
+
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50">
+    <nav class="glass">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="text-teal-300 tracking-widest font-extrabold text-xl">JETHRO <span class="opacity-80">MANDALONES</span></span>
+            <span class="hidden sm:inline-block text-xs chip">Software Developer • Graphic Designer</span>
+          </a>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="index.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">Home</a>
+            <a href="about.html" class="px-3 py-2 rounded-full text-sm bg-white/10 text-teal-200">About</a>
+            <a href="portfolio.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">Portfolio</a>
+            <a href="contact.html" class="px-3 py-2 rounded-full text-sm hover:bg-white/5">Contact</a>
+          </div>
+          <a href="about.html" class="md:hidden px-3 py-2 rounded-lg hover:bg-white/5">Back</a>
+        </div>
+      </div>
+    </nav>
+    <div class="divider"></div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
+
+    <!-- Hero -->
+    <section class="glass rounded-3xl p-6 sm:p-10">
+      <div class="grid md:grid-cols-5 gap-6 items-center">
+        <div class="md:col-span-3">
+
+          <span class="chip text-xs tracking-wider text-teal-200/90">READ MORE</span>
+          <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold neon">A little more about me</h1>
+          <p class="mt-4 text-teal-100/90">
+            I am <span class="font-semibold">Jethro K. Mandalones</span>, a software developer who blends logic with creativity to build meaningful digital solutions. I create modern web applications, interactive interfaces, and scalable systems that deliver seamless and engaging user experiences. My work is driven by clean architecture, high performance, and a commitment to purposeful innovation.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="contact.html" class="btn">Book a discovery chat</a>
+            <a href="about.html" class="btn btn-outline">Back to About</a>
+          </div>
+        </div>
+        <div class="md:col-span-2">
+          <div class="relative rounded-3xl overflow-hidden glass min-h-[260px]">
+            <img src="./images/jethrooo.jpg" alt="Jethro K. Mandalones"
+               class="absolute inset-0 h-full w-full object-cover" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.8;" />
+          <div class="absolute inset-0" style="position:absolute; inset:0; background: linear-gradient(to top right, rgba(6,27,28,.7), transparent 55%);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="glass rounded-3xl p-6 hover:scale-[1.02] transition-transform duration-300 backdrop-blur-xl shadow-lg border border-teal-500/20">
+        <h3 class="text-2xl font-bold text-teal-200 tracking-tight">WEBSITE DEVELOPMENT</h3>
+        <p class="mt-3 text-sm leading-relaxed text-teal-100/80">Building fast, responsive, and conversion-focused websites that perform beautifully across all devices.</p>
+        <div class="mt-5">
+          <span class="chip text-xs bg-teal-900/40 text-teal-200 px-2 py-1 rounded-full">Process</span>
+          <ul class="mt-3 space-y-1.5 text-sm text-teal-100/75 list-disc list-inside">
+            <li>Requirements Gathering &amp; Planning</li>
+            <li>Wireframing &amp; Backend Setup</li>
+            <li>Frontend Integration &amp; Testing</li>
+            <li>Launch &amp; Ongoing Optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass rounded-3xl p-6 hover:scale-[1.02] transition-transform duration-300 backdrop-blur-xl shadow-lg border border-teal-500/20">
+        <h3 class="text-2xl font-bold text-teal-200 tracking-tight">SEO / LEAD GENERATION</h3>
+        <p class="mt-3 text-sm leading-relaxed text-teal-100/80">Driving visibility, traffic, and measurable leads through data-backed SEO and precision targeting.</p>
+        <div class="mt-5">
+          <span class="chip text-xs bg-teal-900/40 text-teal-200 px-2 py-1 rounded-full">Process</span>
+          <ul class="mt-3 space-y-1.5 text-sm text-teal-100/75 list-disc list-inside">
+            <li>Keyword &amp; Competitor Analysis</li>
+            <li>On-Page &amp; Technical Optimization</li>
+            <li>Content Strategy &amp; Link Building</li>
+            <li>Performance Tracking &amp; Conversion Refinement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass rounded-3xl p-6 hover:scale-[1.02] transition-transform duration-300 backdrop-blur-xl shadow-lg border border-teal-500/20">
+        <h3 class="text-2xl font-bold text-teal-200 tracking-tight">ADS SPECIALIST</h3>
+        <p class="mt-3 text-sm leading-relaxed text-teal-100/80">Crafting high-performing campaigns that turn ad spend into measurable growth across Google and Meta.</p>
+        <div class="mt-5">
+          <span class="chip text-xs bg-teal-900/40 text-teal-200 px-2 py-1 rounded-full">Process</span>
+          <ul class="mt-3 space-y-1.5 text-sm text-teal-100/75 list-disc list-inside">
+            <li>Market Research &amp; Audience Definition</li>
+            <li>Ad Creative Development</li>
+            <li>Campaign Launch &amp; A/B Testing</li>
+            <li>Monitoring, Optimization &amp; Scaling</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass rounded-3xl p-6 hover:scale-[1.02] transition-transform duration-300 backdrop-blur-xl shadow-lg border border-teal-500/20">
+        <h3 class="text-2xl font-bold text-teal-200 tracking-tight">SOCIAL MEDIA MANAGEMENT SPECIALIST</h3>
+        <p class="mt-3 text-sm leading-relaxed text-teal-100/80">Creating high-retention posts, reels, and carousels that keep audiences hooked and brands remembered.</p>
+        <div class="mt-5">
+          <span class="chip text-xs bg-teal-900/40 text-teal-200 px-2 py-1 rounded-full">Process</span>
+          <ul class="mt-3 space-y-1.5 text-sm text-teal-100/75 list-disc list-inside">
+            <li>Brand Audit &amp; Strategy Setup</li>
+            <li>Content Planning &amp; Scheduling</li>
+            <li>Creative Production &amp; Copywriting</li>
+            <li>Community Engagement &amp; Analytics</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="glass rounded-3xl p-6 hover:scale-[1.02] transition-transform duration-300 backdrop-blur-xl shadow-lg border border-teal-500/20">
+        <h3 class="text-2xl font-bold text-teal-200 tracking-tight">WEBSITE DESIGNER</h3>
+        <p class="mt-3 text-sm leading-relaxed text-teal-100/80">Designing stunning, user-centered interfaces that make your brand stand out online — from concept to launch.</p>
+        <div class="mt-5">
+          <span class="chip text-xs bg-teal-900/40 text-teal-200 px-2 py-1 rounded-full">Process</span>
+          <ul class="mt-3 space-y-1.5 text-sm text-teal-100/75 list-disc list-inside">
+            <li>Moodboard &amp; Visual Direction</li>
+            <li>UI/UX Wireframing &amp; Mockups</li>
+            <li>Design Prototyping &amp; Client Review</li>
+            <li>Final Delivery &amp; Design Handoff</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="glass rounded-3xl p-6 sm:p-8">
+      <h2 class="text-2xl font-extrabold neon">Journey and Highlights</h2>
+      <div class="mt-6 space-y-6">
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">2022</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">Started Coding in College</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Began the Bachelor of Science in Information Systems journey. Built basics in HTML, CSS, and JavaScript and discovered a passion for creating useful tools.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">2023</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">Creative Work for Campus</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Produced visual assets and publication materials using Canva and CapCut Pro. Learned how clear design supports effective communication.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">2024 to 2025</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">IS Club Representative</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Served as 3rd Year Representative for the Information Systems Club at Pamantasan ng Lungsod ng San Pablo. Helped coordinate events and supported member activities.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">2025 to 2026</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">IS Club Vice President</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Elected Vice President of the Information Systems Club. Leads programs that promote technology learning, collaboration, and professional growth.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">2025</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">Capstone Lead Programmer</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Acts as the current programmer for the capstone. Builds modern web features with Laravel, PHP, MySQL, Blade, and Tailwind with a focus on clean architecture and performance.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-8 gap-3">
+          <div class="sm:col-span-2"><span class="chip text-xs">Now</span></div>
+          <div class="sm:col-span-6">
+            <p class="font-semibold text-teal-200">4th Year BSIS Major in Business Analytics</p>
+            <p class="text-teal-100/85 text-sm leading-relaxed">Focused on backend and data driven solutions. Open to internships and entry level roles where logic and creativity can deliver practical results.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Certificates and Achievements -->
+    <section class="glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-2xl font-extrabold neon">Certificates and achievements</h2>
+        <span class="chip text-xs">3 items</span>
+      </div>
+
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Cert 1 -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="relative h-40 bg-black/20">
+            <img
+              src="certificates/DICT.png"
+              alt="Artificial Intelligence in Data Analytics"
+              class="absolute inset-0 w-full h-full object-cover opacity-85"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#061b1c]/60 to-transparent"></div>
+            <div class="absolute bottom-2 left-2">
+              <span class="chip text-[10px]">2025</span>
+            </div>
+          </div>
+
+          <div class="p-4 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-teal-200">Artificial Intelligence in Data Analytics</h3>
+            <p class="text-xs text-teal-100/80 mt-1">Issued by Coursera</p>
+            <p class="text-[11px] text-teal-100/70 mt-2">
+              Credential ID: <span class="font-mono">DICT MIMAROPA</span>
+            </p>
+
+            <div class="mt-4 flex items-center gap-2">
+              <button
+                class="btn btn-outline text-sm"
+                data-certs-preview="certificates/DICT.png"
+                data-title="Artificial Intelligence in Data Analytics"
+                onclick="openPreview(this)"
+              >
+                <!-- eye icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
+                  <circle cx="12" cy="12" r="3" stroke-width="2" />
+                </svg>
+                Preview
+              </button>
+
+              <a href="https://drive.google.com/drive/folders/1e4TymNpoVO3dm5o3jHcQdHEhj6VMcSrA?fbclid=IwY2xjawMxIDxleHRuA2FlbQIxMABicmlkETEwY0d5UGRiUWxsaDg1UndwAR5bPiwKujkrn1XMft9SOqhV30SIifhSiE8ASfJpSZCI2G2cFZQsJaSLy5vKiw_aem_QqvtfnNQOpyh6mjsfhZJ8g"
+                 target="_blank" rel="noopener" class="btn btn-outline text-sm">
+                <!-- link icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 13a5 5 0 007.07 0l2.12-2.12a5 5 0 10-7.07-7.07L10 3" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 11a5 5 0 01-7.07 0L4.81 8.88a5 5 0 017.07-7.07L14 5" />
+                </svg>
+                Verify
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cert 2 -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="relative h-40 bg-black/20">
+            <img
+              src="certificates/digital%20bayanihan.png"
+              alt="Digital Bayanihan"
+              class="absolute inset-0 w-full h-full object-cover opacity-85"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#061b1c]/60 to-transparent"></div>
+            <div class="absolute bottom-2 left-2">
+              <span class="chip text-[10px]">2025</span>
+            </div>
+          </div>
+
+          <div class="p-4 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-teal-200">Digital Bayanihan</h3>
+            <p class="text-xs text-teal-100/80 mt-1">Issued by College of Computer Studies and Technology</p>
+            <p class="text-[11px] text-teal-100/70 mt-2">
+              Credential ID: <span class="font-mono">MB-88901</span>
+            </p>
+
+            <div class="mt-4 flex items-center gap-2">
+              <button
+                class="btn btn-outline text-sm"
+                data-certs-preview="certificates/digital%20bayanihan.png"
+                data-title="Digital Bayanihan"
+                onclick="openPreview(this)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
+                  <circle cx="12" cy="12" r="3" stroke-width="2" />
+                </svg>
+                Preview
+              </button>
+
+              <a href="https://drive.google.com/drive/folders/1e4TymNpoVO3dm5o3jHcQdHEhj6VMcSrA?fbclid=IwY2xjawMxIDxleHRuA2FlbQIxMABicmlkETEwY0d5UGRiUWxsaDg1UndwAR5bPiwKujkrn1XMft9SOqhV30SIifhSiE8ASfJpSZCI2G2cFZQsJaSLy5vKiw_aem_QqvtfnNQOpyh6mjsfhZJ8g"
+                 target="_blank" rel="noopener" class="btn btn-outline text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 13a5 5 0 007.07 0l2.12-2.12a5 5 0 10-7.07-7.07L10 3" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 11a5 5 0 01-7.07 0L4.81 8.88a5 5 0 017.07-7.07L14 5" />
+                </svg>
+                Verify
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cert 3 -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="relative h-40 bg-black/20">
+            <img
+              src="certificates/ethical%20hacking.png"
+              alt="Ethical Hacking and Data Security"
+              class="absolute inset-0 w-full h-full object-cover opacity-85"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#061b1c]/60 to-transparent"></div>
+            <div class="absolute bottom-2 left-2">
+              <span class="chip text-[10px]">2025</span>
+            </div>
+          </div>
+
+          <div class="p-4 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-teal-200">Ethical Hacking and Data Security</h3>
+            <p class="text-xs text-teal-100/80 mt-1">Issued by College of Computer Studies and Technology</p>
+            <p class="text-[11px] text-teal-100/70 mt-2">
+              Credential ID: <span class="font-mono">ADBE-PS-5567</span>
+            </p>
+
+            <div class="mt-4 flex items-center gap-2">
+              <button
+                class="btn btn-outline text-sm"
+                data-certs-preview="certificates/ethical%20hacking.png"
+                data-title="Ethical Hacking and Data Security"
+                onclick="openPreview(this)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
+                  <circle cx="12" cy="12" r="3" stroke-width="2" />
+                </svg>
+                Preview
+              </button>
+
+              <a href="https://drive.google.com/drive/folders/1e4TymNpoVO3dm5o3jHcQdHEhj6VMcSrA?fbclid=IwY2xjawMxIDxleHRuA2FlbQIxMABicmlkETEwY0d5UGRiUWxsaDg1UndwAR5bPiwKujkrn1XMft9SOqhV30SIifhSiE8ASfJpSZCI2G2cFZQsJaSLy5vKiw_aem_QqvtfnNQOpyh6mjsfhZJ8g"
+                 target="_blank" rel="noopener" class="btn btn-outline text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 13a5 5 0 007.07 0l2.12-2.12a5 5 0 10-7.07-7.07L10 3" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 11a5 5 0 01-7.07 0L4.81 8.88a5 5 0 017.07-7.07L14 5" />
+                </svg>
+                Verify
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="glass rounded-3xl p-6 sm:p-8">
+      <h2 class="text-2xl font-extrabold neon">Tools I Use</h2>
+
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-teal-200 mb-2">Development</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Laravel</span>
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Blade</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">VS Code</span>
+          <span class="chip">GitHub</span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold text-teal-200 mb-2">Design &amp; Content</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Canva</span>
+          <span class="chip">CapCut</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Photoshop</span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold text-teal-200 mb-2">Social Media &amp; Productivity</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Meta Business Suite</span>
+          <span class="chip">Google Workspace</span>
+          <span class="chip">Trello</span>
+          <span class="chip">Notion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="glass rounded-3xl p-6 sm:p-8 text-center">
+      <h3 class="text-2xl font-extrabold neon">Want results that look good and perform great?</h3>
+      <p class="mt-2 text-teal-100/85">Tell me about your brand and goals. I will suggest a smart and simple plan.</p>
+      <div class="mt-5 flex items-center justify-center gap-3">
+        <a href="contact.html" class="btn">Start a project</a>
+        <a href="portfolio.html" class="btn btn-outline">See portfolio</a>
+      </div>
+    </section>
+
+    <p class="text-center text-xs text-teal-100/60">© <span id="year"></span> Jethro Mandalones</p>
+  </main>
+
+  <!-- Simple preview modal -->
+  <dialog id="certPreview" class="rounded-2xl p-0 bg-transparent">
+    <div class="glass rounded-2xl overflow-hidden max-w-3xl w-[92vw]">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <p id="certTitle" class="text-sm text-teal-100/90">Certificate preview</p>
+        <button onclick="closePreview()" class="chip text-xs">Close</button>
+      </div>
+      <div class="relative bg-black/20">
+        <img id="certImage" src="" alt="Certificate" class="w-full h-auto object-contain">
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Preview modal handlers
+    function openPreview(btn){
+      const url = btn.getAttribute('data-certs-preview');
+      const title = btn.getAttribute('data-title') || 'Certificate preview';
+      const img = document.getElementById('certImage');
+      const ttl = document.getElementById('certTitle');
+      const dlg = document.getElementById('certPreview');
+      if(img && ttl && dlg){
+        img.src = url;
+        ttl.textContent = title;
+        if(typeof dlg.showModal === 'function'){ dlg.showModal(); }
+      }
+    }
+    function closePreview(){
+      const dlg = document.getElementById('certPreview');
+      if(dlg && typeof dlg.close === 'function'){ dlg.close(); }
+    }
+  </script>
+</body>
+</html>
