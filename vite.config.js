@@ -1,10 +1,16 @@
 // vite.config.js
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
+import { fileURLToPath } from 'url'
+
+// __dirname-safe for ESM configs
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const isVercel = !!process.env.VERCEL
 const isGitHubPages = !!process.env.GITHUB_ACTIONS
 
 export default defineConfig({
+  // Root on Vercel; repo subpath on GitHub Pages
   base: isVercel ? '/' : (isGitHubPages ? '/My-Portofolio/' : '/'),
 
   server: { host: true, port: 5173, open: '/about.html' },
@@ -20,15 +26,15 @@ export default defineConfig({
     cssCodeSplit: true,
     chunkSizeWarningLimit: 900,
 
-    // 👇 IMPORTANT: list every HTML page you want built
+    // Explicit MPA entries — the files must be at the repo root (not in dist/)
     rollupOptions: {
       input: {
-        index: 'index.html',
-        about: 'about.html',
-        contact: 'contact.html',
-        techstack: 'tech-stack.html',
-        aboutreadmore: 'about-read-more.html'
-      }
-    }
-  }
+        index:         resolve(__dirname, 'index.html'),
+        about:         resolve(__dirname, 'about.html'),
+        contact:       resolve(__dirname, 'contact.html'),
+        techstack:     resolve(__dirname, 'tech-stack.html'),
+        aboutreadmore: resolve(__dirname, 'about-read-more.html'),
+      },
+    },
+  },
 })

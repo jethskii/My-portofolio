@@ -1,5 +1,1 @@
-{
-  "redirects": [
-    { "source": "/", "destination": "/about.html", "permanent": false }
-  ]
-}
+{ "redirects": [{ "source": "/", "destination": "/about.html", "permanent": false }] }
